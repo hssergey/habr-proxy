@@ -1,0 +1,15 @@
+logs
+venv
+pids
+migrations
+*.sqlite3
+*.pyc
+
+
+/.pydevproject
+/.project
+/nbproject/private/
+/tmp/
+/.vscode/
+media
+/celerybeat-schedule
