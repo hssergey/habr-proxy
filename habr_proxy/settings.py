@@ -126,3 +126,9 @@ PROXIED_SITE = "https://habr.com"
 
 #user agent to make request
 USER_AGENT = "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0"
+
+#number of symbols to search the word
+CHARS_AMOUNT = 6
+
+#string to add
+ADDING_STRING = "™"

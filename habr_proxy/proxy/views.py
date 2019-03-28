@@ -2,6 +2,7 @@ from django.http.response import HttpResponse
 from django.conf import settings
 import requests
 import lxml.html
+from habr_proxy.proxy.utils import add_symbols
 
 
 def handle_request(request):
@@ -26,9 +27,11 @@ def handle_request(request):
 					url = url.replace(settings.PROXIED_SITE, local_site)
 					element.set("href", url)
 			# search text content to add symbol
-			root = doc.getroot()
-			for element in root.iter():
+			for element in doc.iter():
 				text = element.text
+				if text:
+					print(text)
+					element.text = add_symbols(text)
 			return HttpResponse(lxml.html.tostring(doc), content_type = content_type)
 	#bypassing non-html content
 	return HttpResponse(req.text, content_type = content_type)
